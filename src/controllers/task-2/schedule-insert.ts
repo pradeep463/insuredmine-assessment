@@ -28,7 +28,7 @@ export async function scheduledInsert(req: Request, res: Response) {
         );
       }
 
-      const a = await scheduledInsertFun({
+      scheduledInsertFun({
         message: message,
         day: day,
         time: time,
@@ -38,7 +38,6 @@ export async function scheduledInsert(req: Request, res: Response) {
       });
 
       res.json({
-        a,
         status: true,
         message: `Message inserting scheduled @${day}-${time}`,
         date: new Date(),
