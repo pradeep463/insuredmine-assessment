@@ -1,0 +1,14 @@
+Task 2: Track real-time CPU utilization of the node server and on 70% usage restart the server.
+
+setInterval(checkCpuUsage, 1000 * 60);
+
+Present in index.ts file
+
+    1. The CPU usage monitoring is implemented in the checkCpuUsage function, located in the util/cpuUsage.ts file.
+    2. The monitoring interval is set to every minute using the setInterval function.
+    3. If the CPU usage exceeds the threshold of 70%, the server is restarted.
+
+
+clust:clust
+
+-------------------------------------------------------------------------------------------
