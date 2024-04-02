@@ -6,6 +6,7 @@ import cors from "cors";
 import fs from "fs";
 import { allRoutes } from "./routes/allRoutes";
 import { checkCpuUsage } from "./utils/cpuUsage";
+import multer from "multer";
 
 const app: Express = express();
 
@@ -19,16 +20,16 @@ const isExistUploadDirectory = (req: Request, res: Response, next: any) => {
 
 app.use(isExistUploadDirectory);
 
-// const storage = multer.diskStorage({
-//   destination: function (req: any, file: any, cb: any) {
-//     cb(null, "uploads/");
-//   },
-//   filename: function (req: any, file: any, cb: any) {
-//     cb(null, file.originalname);
-//   },
-// });
+const storage = multer.diskStorage({
+  destination: function (req: any, file: any, cb: any) {
+    cb(null, "uploads/");
+  },
+  filename: function (req: any, file: any, cb: any) {
+    cb(null, file.originalname);
+  },
+});
 
-// const upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
 
 app.use(
   cors({
@@ -43,7 +44,7 @@ allRoutes.forEach((route) => {
   if (route.method === "GET") {
     app.get(route.path, route.handler);
   } else if (route.method === "POST" && route.isFileUpload) {
-    // app.post(route.path, upload.any(), route.handler);
+    app.post(route.path, upload.any(), route.handler);
   } else if (route.method === "POST") {
     app.post(route.path, route.handler);
   } else if (route.method === "DELETE") {

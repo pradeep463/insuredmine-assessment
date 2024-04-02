@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import mongoose, { Document, Schema } from "mongoose";
 
 export interface IScheduledInsert extends Document {

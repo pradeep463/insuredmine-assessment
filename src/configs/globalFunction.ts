@@ -2,7 +2,7 @@ import { getDayOfWeek } from "../helpers/timings";
 import {
   IScheduledInsert,
   ScheduledInsertModel,
-} from "../models/schedule-insert";
+} from "../models/Schedule-insert";
 import { scheduleJob } from "node-schedule";
 export const scheduledInsertFun = async (data: any) => {
   const { day, time } = data;
