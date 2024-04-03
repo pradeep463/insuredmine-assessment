@@ -1,7 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
 import { DB_URL, PORT } from "./configs/ENV";
-// import { logger } from "./middleware/logger";
 import cors from "cors";
 import fs from "fs";
 import { allRoutes } from "./routes/allRoutes";
@@ -54,8 +53,6 @@ allRoutes.forEach((route) => {
   }
 });
 
-// set up Database connection
-
 mongoose
   .connect(DB_URL)
   .then(() => console.log("Connected to Mongo"))
@@ -65,5 +62,5 @@ app.listen(PORT, () => {
   console.log(`[server]: Server is running at ${PORT}`);
 });
 
-// Task 2 : Check CPU usage every minute if its more than 70% restart the server
-// setInterval(checkCpuUsage,1000 * 60)
+// Task 2 : Check CPU usage every 30 sec if its more than 70% restart the server
+setInterval(checkCpuUsage,1000 * 30)
