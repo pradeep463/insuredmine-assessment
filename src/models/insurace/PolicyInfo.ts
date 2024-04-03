@@ -26,15 +26,19 @@ const policyInfoSchema: Schema = new Schema({
     required: true,
   },
   policyCategoryId: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   companyId: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   userId: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
+  agentId: {
+    type: Schema.Types.ObjectId,
     required: true,
   },
   status: {

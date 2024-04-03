@@ -1,13 +1,13 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface IAccount extends Document {
+export interface IAgent extends Document {
   name: string;
   status: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const accountSchema: Schema = new Schema({
+const agentSchema: Schema = new Schema({
   name: {
     type: String,
     required: true,
@@ -29,7 +29,4 @@ const accountSchema: Schema = new Schema({
   },
 });
 
-export const AccountsModel = mongoose.model<IAccount>(
-  "Account",
-  accountSchema
-);
+export const AgentModel = mongoose.model<IAgent>("Agents", agentSchema);

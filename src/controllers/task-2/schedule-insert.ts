@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { scheduledInsertFun } from "../../configs/globalFunction";
+const { scheduledInsertFun } = require("../../configs/globalFunction.ts");
+// import { scheduledInsertFun } from "../../configs/globalFunction.ts";
 import schedule from "node-schedule";
 
 export async function scheduledInsert(req: Request, res: Response) {
